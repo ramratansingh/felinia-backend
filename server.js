@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const vetRoutes = require('./routes/vetAuth');
 const catRoutes = require('./routes/cats');
+const recordRoutes = require("./routes/records");
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ mongoose.connect(process.env.MONGO_URI, {
 // Routes
 app.use('/api/vets', vetRoutes);
 app.use('/api/cats', catRoutes);
+app.use("/api/records", recordRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
